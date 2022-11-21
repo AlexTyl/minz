@@ -17,6 +17,8 @@ abstract class BaseDishListViewModel : RxViewModel() {
 
     abstract fun switchDish(dish: DishUI)
 
+    abstract fun downloadDishes()
+
     sealed class ScreenEventState {
         object Normal: ScreenEventState()
         object Download : ScreenEventState()

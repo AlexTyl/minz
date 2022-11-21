@@ -41,6 +41,7 @@ class DishListFragment : Fragment(R.layout.fragment_dish_list) {
         binding.dishList.adapter = adapter
 
         viewModel.dishes.doOnNext {
+            binding.swipe.isRefreshing = false
             adapter.setList(it)
         }
             .subscribe()
@@ -51,10 +52,12 @@ class DishListFragment : Fragment(R.layout.fragment_dish_list) {
                 BaseDishListViewModel.ScreenEventState.Download -> {
                     binding.progress.visibility = View.VISIBLE
                     binding.deleteButton.visibility = View.GONE
+                    binding.swipe.isEnabled = false
                 }
                 BaseDishListViewModel.ScreenEventState.Normal -> {
                     binding.progress.visibility = View.GONE
                     binding.deleteButton.visibility = View.VISIBLE
+                    binding.swipe.isEnabled = true
                 }
             }
         }
@@ -73,6 +76,10 @@ class DishListFragment : Fragment(R.layout.fragment_dish_list) {
 
         binding.deleteButton.setOnClickListener {
             viewModel.deleteSelected()
+        }
+
+        binding.swipe.setOnRefreshListener {
+            viewModel.downloadDishes()
         }
 
     }

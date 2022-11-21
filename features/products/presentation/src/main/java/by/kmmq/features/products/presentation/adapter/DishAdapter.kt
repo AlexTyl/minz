@@ -73,6 +73,7 @@ class DishAdapter(
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
             old[oldItemPosition].id == new[newItemPosition].id
+                    && old[oldItemPosition].isSwitches == new[newItemPosition].isSwitches
 
     }
 

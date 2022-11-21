@@ -44,6 +44,8 @@ class DishListViewModel(
             }
             .doOnSuccess { dishesUI ->
                 dishes.onNext(dishesUI)
+                selectedCount = 0
+                deleteButtonState.onNext(false)
             }
             .doOnError {
                 error.onNext(it.localizedMessage ?: "")
@@ -71,5 +73,11 @@ class DishListViewModel(
             selectedCount--
 
         deleteButtonState.onNext(selectedCount > 0)
+    }
+
+    override fun downloadDishes() {
+        getDishes()
+            .subscribe()
+            .bindToLifecycle()
     }
 }
