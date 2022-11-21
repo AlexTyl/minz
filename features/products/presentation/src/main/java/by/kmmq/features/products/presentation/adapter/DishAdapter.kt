@@ -44,8 +44,9 @@ class DishAdapter(
         with(holder.binding) {
             name.text = dish.name
             description.text = dish.description
-            switchButton.isChecked = dish.isSwitches
 
+            switchButton.setOnCheckedChangeListener { _, _ -> }
+            switchButton.isChecked = dish.isSwitches
             switchButton.setOnCheckedChangeListener { _, isChecked ->
                 dish.isSwitches = isChecked
                 onDishSwitchListener.onSelected(dish)
