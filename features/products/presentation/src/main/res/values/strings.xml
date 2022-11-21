@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ui_delete">Delete</string>
+    <string name="ui_credits">%1$d credits!</string>
 </resources>

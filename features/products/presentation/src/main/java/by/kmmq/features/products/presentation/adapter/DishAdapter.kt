@@ -54,7 +54,7 @@ class DishAdapter(
 
             price.text = dish.price
             Glide.with(holder.itemView).load(dish.image)
-                .placeholder(R.drawable.ic_android_black_24dp).into(image)
+                .placeholder(R.drawable.ic_default_burger).into(image)
         }
     }
 

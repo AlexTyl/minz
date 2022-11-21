@@ -21,7 +21,7 @@ class DishDetailsFragment : Fragment(R.layout.fragment_dish_details) {
                 description.text = dish.description
                 price.text = dish.price
                 Glide.with(this@DishDetailsFragment).load(dish.image)
-                    .placeholder(R.drawable.ic_android_black_24dp).into(image)
+                    .placeholder(R.drawable.ic_default_burger).into(image)
             }
         }
 

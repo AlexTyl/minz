@@ -4,6 +4,7 @@ import by.kmmq.feature.products.data.GetDishListUseCaseMock
 import by.kmmq.features.products.domain.GetDishListUseCase
 import by.kmmq.features.products.presentation.list.BaseDishListViewModel
 import by.kmmq.features.products.presentation.list.DishListViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -18,7 +19,8 @@ private val viewModels = module {
     viewModel<BaseDishListViewModel> {
         DishListViewModel(
             router = get(),
-            getDishListUseCase = get()
+            getDishListUseCase = get(),
+            context = androidApplication().applicationContext
         )
     }
 }

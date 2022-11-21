@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        tools:background="#323232" />
+        tools:src="@drawable/ic_default_burger" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchButton"

@@ -1,5 +1,6 @@
 package by.kmmq.features.products.presentation.list
 
+import android.content.Context
 import by.kmmq.features.products.domain.GetDishListUseCase
 import by.kmmq.features.products.presentation.mappers.DishMapper
 import by.kmmq.features.products.presentation.model.DishUI
@@ -12,6 +13,7 @@ import io.reactivex.rxjava3.subjects.PublishSubject
 class DishListViewModel(
     private val router: IDishListRouter,
     private val getDishListUseCase: GetDishListUseCase,
+    context: Context
 ) : BaseDishListViewModel() {
 
     override val dishes: BehaviorSubject<List<DishUI>> = BehaviorSubject.createDefault(emptyList())
@@ -22,7 +24,7 @@ class DishListViewModel(
 
     override val error: PublishSubject<String> = PublishSubject.create()
 
-    private val dishMapper = DishMapper()
+    private val dishMapper = DishMapper(context)
 
     private var selectedCount = 0
 
