@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.2.2' apply false
+    id 'com.android.library' version '7.2.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10' apply false
+
+}
+
+ext {
+
+    dependencies = [:]
+
+    /* ReactiveX */
+    dependencies.rxJava = 'io.reactivex.rxjava3:rxjava:3.0.12'
+    dependencies.rxAndroid = 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    dependencies.rxBinding = 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
+
+    /* DI */
+    dependencies.koinAndroid = 'io.insert-koin:koin-android:3.2.3'
+
+    dependencies.kotlinStdlib = 'org.jetbrains.kotlin:kotlin-stdlib'
+
+    dependencies.core_ktx = 'androidx.core:core-ktx:1.9.0'
+
+    dependencies.viewBinding = 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.4.4'
+
+    /* Glide */
+    dependencies.glide = "com.github.bumptech.glide:glide:4.14.2"
+
+    dependencies.appcompat = 'androidx.appcompat:appcompat:1.5.1'
+
+    dependencies.productsFeature = [
+            project (':features:products:domain'),
+            project (':features:products:data'),
+            project (':features:products:presentation'),
+            project (':features:products:di'),
+    ]
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

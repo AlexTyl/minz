@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Minz"
+
+include ':app'
+
+include ':features:products:data'
+include ':features:products:di'
+include ':features:products:presentation'
+include ':features:products:domain'
+include ':utils'
